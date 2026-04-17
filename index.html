@@ -1,256 +1,169 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-    <title>Pluto's Homepage</title>
-    <meta name="description" content="Pluto's Homepage">
-    <meta name="keywords" content="Pluto,Homepage,plutobe,Java,Spring,个人主页,个人博客,博客">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="static/css/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript">
-        if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
-            alert('朋友，上古IE浏览器不支持呢~');
-        }
-    </script>
-</head>
-<body>
-<div id="body-wrap">
-    <nav class="not_index_bg" id="nav" style="background-image:url(https://api.ixiaowai.cn/api/api.php)">
-        <div id="page_site-info">
-            <div id="site-title">
-                <span class="blogtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    new Typed(".blogtitle", {
-                        strings: [
-                            'Talk is cheap',
-                            'Show me the code'
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 80,
-                        loop: true,
-                        backSpeed: 20,
-                        showCursor: true
-                    });
-                </script>
-            </div>
-        </div>
-    </nav>
-    <main id="content-outer">
-        <div class="layout_page" id="content-inner">
-            <div class="aside_content" id="aside_content">
-                <div class="card-widget card-info">
-                    <div class="card-content">
-                        <div class="card-info-avatar is-center">
-                            <img class="avatar-img" src="static/image/avatar.jpg" alt="avatar">
-                            <div class="author-info__name">Pluto</div>
-                            <div class="author-info__description">一个普通人类，95后青年，后端开发者，略懂前端</div>
-                        </div>
-                        <div class="card-info-social-icons is-center">
-                            <a class="social-icon" href="https://github.com/plutobe" target="_blank">
-                                <i class="fa fa-github"></i>
-                            </a>
-                            <a class="social-icon" href="https://twitter.com/plutobez" target="_blank">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a class="social-icon" href="https://weibo.com/plutobe" target="_blank">
-                                <i class="fa fa-weibo"></i>
-                            </a>
-                            <a class="social-icon" href="static/image/wechat-qrcode.png" target="_blank">
-                                <i class="fa fa-wechat"></i>
-                            </a>
-                            <a class="social-icon" href="mailto:plutobe@qq.com" target="_blank">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head><title>z.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#222325">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#222325">
+    <meta name="msapplication-navbutton-color" content="#222325">
+    <link rel="stylesheet" href="css/font.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="content-type" content="on">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="prefetch" href="https://cdn.jsdelivr.net/">
+    <meta name="description" content="Author:z.,Category:Personal HomePage">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!--[if lt IE 9]>
+    <style>.alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
 
-                <div class="card-widget card-announcement">
-                    <div class="card-content">
-                        <div class="item-headline">
-                            <i class="fa fa-bullhorn"></i>
-                            <span>一言</span>
-                        </div>
-                        <div id="hitokoto"></div>
-                    </div>
-                </div>
-                <div class="card-widget card-announcement">
-                    <div class="card-content">
-                        <div class="item-headline">
-                            <i class="fa fa-calendar"></i>
-                            <span>今日诗词</span>
-                        </div>
-                        <div id="jinrishici-sentence"></div>
-                    </div>
-                </div>
+    .alert-danger {
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        color: #a94442;
+        border-bottom: 1px solid #ebccd1
+    }
 
-                <div class="card-widget card-webinfo">
-                    <div class="card-content">
-                        <div class="item-headline">
-                            <i class="fa fa-line-chart"></i>
-                            <span>站点信息</span>
-                        </div>
-                        <div class="webinfo">
-                            <div class="webinfo-item">
-                                <div class="webinfo-site-uv-name">本站访客数 :</div>
-                                <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
-                            </div>
-                            <div class="webinfo-item">
-                                <div class="webinfo-site-name">本站总访问量 :</div>
-                                <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <article id="page">
-                <div class="article-container">
-                    <h2>来首网抑云吧</h2>
-                    <meting-js
-                            server="netease"
-                            type="playlist"
-                            id="410303278"
-                            mutex="true">
-                    </meting-js>
-                    <hr>
+    .alert-link {
+        color: #843534;
+        font-weight: bold
+    }
 
-                    <h2>技能属性</h2>
-                    <div class="skillbox">
-                        <div class="skillbar">
-                            <div class="skillbar-title"
-                                 style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 75%">
-                                <span>Java</span>
-                            </div>
-                            <div class="skill-bar-percent">75%</div>
-                        </div>
-                        <div class="skillbar">
-                            <div class="skillbar-title"
-                                 style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 60%">
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="skill-bar-percent">60%</div>
-                        </div>
-                        <div class="skillbar">
-                            <div class="skillbar-title"
-                                 style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 65%">
-                                <span>MySQL</span>
-                            </div>
-                            <div class="skill-bar-percent">65%</div>
-                        </div>
-                        <div class="skillbar">
-                            <div class="skillbar-title"
-                                 style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 70%">
-                                <span>MyBatis</span>
-                            </div>
-                            <div class="skill-bar-percent">70%</div>
-                        </div>
-                        <div class="skillbar">
-                            <div class="skillbar-title"
-                                 style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 70%">
-                                <span>Spring</span>
-                            </div>
-                            <div class="skill-bar-percent">70%</div>
-                        </div>
-                        <div class="skillbar">
-                            <div class="skillbar-title"
-                                 style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 60%">
-                                <span>Docker</span>
-                            </div>
-                            <div class="skill-bar-percent">60%</div>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <h2>一个普通人类的说明书</h2>
-                    <div>
-                        <p>平平无奇的代码搬运工 目前头发还很茂盛 毕竟技术功底和头发茂密程度呈反比 我还是个菜鸡🐔</p>
-                        <p>⚪︎爱好：羽毛球🏸 桌球🎱 戴森球🌐 搞不定就算球</p>
-                        <p>⚪︎价值观：💴💴💴（唯物主义者最高追求境界）</p>
-                        <p>⚪︎世界观：世界与我无观（王建国 这盛世如你所愿）</p>
-                        <p>⚪︎人生观：做个简简单单的普通人 有房🏠有车🚗有钞票💴</p>
-                        <p>⚪︎愿望：伽马射线暴扫过地球🌏之前告诉我到底有没有外星人👽</p>
-                        <p>其他未尽事宜请弹窗咨询📲</p>
-                    </div>
-
-                </div>
-            </article>
-        </div>
-    </main>
-    <footer id="footer">
-        <div id="footer-wrap">
-            <div class="copyright">© 2021 Pluto</div>
-        </div>
-    </footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
-<!-- aplayer、meting -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<!--   一言、今日诗词   -->
-<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
-<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-<!--鼠标点击效果-->
-<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js"></script>
-
-<script type="text/javascript">
-    console.clear();
-    console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/plutobe");
-    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.0.0");
-
-
-    (function ($) {
-        $.fn.snow = function (options) {
-            var $flake = $('<div id="snowbox" />').css({
-                    'position': 'absolute',
-                    'z-index': '9999',
-                    'top': '-50px'
-                }).html('&#10052;'),
-                documentHeight = $(document).height(),
-                documentWidth = $(document).width(),
-                defaults = {
-                    minSize: 5,
-                    maxSize: 50,
-                    newOn: 800,
-                    flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
-                },
-                options = $.extend({}, defaults, options);
-            var interval = setInterval(function () {
-                var startPositionLeft = Math.random() * documentWidth - 100,
-                    startOpacity = 0.5 + Math.random(),
-                    sizeFlake = options.minSize + Math.random() * options.maxSize,
-                    endPositionTop = documentHeight - 200,
-                    endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
-                    durationFall = documentHeight * 10 + Math.random() * 5000;
-                $flake.clone().appendTo('body').css({
-                    left: startPositionLeft,
-                    opacity: startOpacity,
-                    'font-size': sizeFlake,
-                    color: options.flakeColor
-                }).animate({
-                    top: endPositionTop,
-                    left: endPositionLeft,
-                    opacity: 0.2
-                }, durationFall, 'linear', function () {
-                    $(this).remove()
-                });
-            }, options.newOn);
-        };
-    })(jQuery);
-    $(function () {
-        $.fn.snow({
-            minSize: 5, /* 定义雪花最小尺寸 */
-            maxSize: 50,/* 定义雪花最大尺寸 */
-            newOn: 800  /* 定义密集程度，数字越小越密集 */
-        });
-    });
-</script>
-</body>
+    .topframe {
+        margin: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+        border-radius: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 1000
+    }
+    </style>
+    <div class="alert alert-danger topframe">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说<a
+            class="alert-link" target="_blank" href="http://browsehappy.com">立即升级</a></div>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]--></head>
 </html>
+<body>
+<main>
+    <div class="content content-intro">
+        <div class="content-inner">
+            <canvas id="background"></canvas>
+            <div class="wrap fade">
+                <style>
+
+                    @keyframes octocat-wave {
+                    0%, 100% {
+                        transform: rotate(0)
+                    }
+                    20%, 60% {
+                        transform: rotate(-25deg)
+                    }
+                    40%, 80% {
+                        transform: rotate(10deg)
+                    }
+                }
+
+                @media (max-width: 500px) {
+
+                }</style>
+                </style><h2 class="content-title">z.</h2>
+                <h3 class="content-subtitle" original-content="Front back left right end engineer">&nbsp;</h3><a
+                        class="enter">enter</a>
+                <div class="arrow arrow-1"></div>
+                <div class="arrow arrow-2"></div>
+            </div>
+        </div>
+        <div class="shape-wrap">
+            <svg class="shape" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800"
+                 xmlns:pathdata="http://www.codrops.com/">
+                <path d="M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z"
+                      pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="content content-main">
+        <div id="card">
+            <div class="card-inner fade">
+                <header><img src="assets/avatar.jpg" width="100" height="100" alt="avatar">
+                    <h1 data-translate="name">z.</h1>
+                    <h2 id="signature" data-translate="signature">Code &amp; Input &amp; Output</h2></header>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" aria-label="WeChat" id="wechat-link"><i class="icon icon-wechat"></i><span data-translate="WeChat">WeChat</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/plutobe" aria-label="Github" target="_blank"><i class="icon icon-github"></i><span data-translate="Github">Github</span></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/plutobez" aria-label="Twitter" target="_blank"><i class="icon icon-twitter"></i><span data-translate="Twitter">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="mailto:plutobe@qq.com" aria-label="Email" target="_blank"><i class="icon icon-email"></i><span data-translate="Email">Email</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <canvas class="grid-background" id="gridCanvas"></canvas>
+    </div>
+    <div id="wechat-lightbox" class="lightbox">
+        <img src="assets/wechat.jpg" alt="WeChat QR Code">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script>window.$ = selector => document.querySelector(selector)
+    const getOriginalContent = selector => $(selector).getAttribute("original-content")
+    window.subtitle = getOriginalContent(".content-subtitle")
+    window.signature = getOriginalContent("#signature")
+    window.config = {
+        SIM_RESOLUTION: 128,
+        DYE_RESOLUTION: 1024,
+        CAPTURE_RESOLUTION: 512,
+        DENSITY_DISSIPATION: 1,
+        VELOCITY_DISSIPATION: 0.2,
+        PRESSURE: 0.8,
+        PRESSURE_ITERATIONS: 20,
+        CURL: 30,
+        SPLAT_RADIUS: 0.25,
+        SPLAT_FORCE: 6000,
+        SHADING: true,
+        COLORFUL: true,
+        COLOR_UPDATE_SPEED: 10,
+        PAUSED: false,
+        BACK_COLOR: {r: 30, g: 31, b: 33},
+        TRANSPARENT: false,
+        BLOOM: true,
+        BLOOM_ITERATIONS: 8,
+        BLOOM_RESOLUTION: 256,
+        BLOOM_INTENSITY: 0.4,
+        BLOOM_THRESHOLD: 0.8,
+        BLOOM_SOFT_KNEE: 0.7,
+        SUNRAYS: true,
+        SUNRAYS_RESOLUTION: 196,
+        SUNRAYS_WEIGHT: 1.0,
+    }
+    // WeChat lightbox
+    const wechatLink = document.getElementById('wechat-link')
+    const lightbox = document.getElementById('wechat-lightbox')
+    wechatLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        lightbox.classList.add('active')
+    })
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active')
+    })
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/log.min.js"></script>
+</main>
+</body>
